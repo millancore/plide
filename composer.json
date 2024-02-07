@@ -1,0 +1,20 @@
+{
+    "require": {
+        "php": "^8.1",
+        "illuminate/view": "^10.43",
+        "illuminate/console": "^10.43",
+        "illuminate/config": "^10.43"
+    },
+    "autoload": {
+        "psr-4": {
+            "Phlide\\": "src/",
+            "Presentations\\": "presentations/"
+        },
+        "files": ["src/helpers.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Phlide\\Tests\\": "tests/"
+        }
+    }
+}
