@@ -7,7 +7,7 @@ use Illuminate\Container\Container;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Filesystem\Filesystem;
-use Phlide\Contracts\ApplicationInterface;
+use Phlide\Contract\ApplicationInterface;
 use Phlide\View\ViewServiceProvider;
 
 class Phlide extends Container implements ApplicationInterface
@@ -73,13 +73,13 @@ class Phlide extends Container implements ApplicationInterface
         return $this;
     }
 
-    public function render(?Presentation $presentation = null): void
+    public function render(?Presentation $presentation = null) : string
     {
         if ($presentation) {
-          print $presentation->render();
+            return $presentation->render();
         }
 
-        print $this->make('view')
+        return $this->make('view')
               ->make(sprintf('%s.show', basename($this->basePath)));
     }
 

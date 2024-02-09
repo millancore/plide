@@ -1,11 +1,10 @@
 # Phlide
 
-
 ![Laravel](.brands/laravel.svg) +
 ![Reveal](.brands/reveal-white-text.svg) +
 ![Tailwind](.brands/tailwindcss.svg) 
 
-Phlide is composer that uses Blade, Reveal.js and Tailwind to create beautiful presentations.
+Phlide is composer that uses  [Laravel Blade](https://laravel.com/docs/10.x/blade#main-content), [Reveal.js](https://revealjs.com/) and [Tailwind CSS](https://tailwindcss.com/docs) to create beautiful presentations.
 
 ### Install
 
@@ -47,15 +46,9 @@ This command exports the presentation to a folder in the `exports` directory.
 this folder only contains **html** and compiled asset for presentation, ready to use
 without need a server.
 
-`--zip` option creates a zip file of the exported presentation.
-
->you only need open `index.html` in your browser.   
+>only need open `index.html` in your browser.   
 
 ## Compose Presentation
-
-- [Laravel Blade](https://laravel.com/docs/10.x/blade#main-content)
-- [Reveal.js](https://revealjs.com/)
-- [Tailwind CSS](https://tailwindcss.com/docs)
 
 ```php
 @extends('layouts.reveal')

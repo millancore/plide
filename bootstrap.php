@@ -1,7 +1,9 @@
 <?php
 
-define('ROOT_PATH', __DIR__);
-define('PRESENTATION_PATH', ROOT_PATH . '/presentations');
+if (!defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__);
+}
+
 
 require __DIR__ . '/vendor/autoload.php';
 

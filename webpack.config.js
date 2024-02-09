@@ -8,6 +8,13 @@ let presentations = fs.readdirSync(presentationsPath, {
 }).filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name);
 
+
+if (presentations.length === 0) {
+    console.warn('No presentations found!');
+    process.exit(1);
+}
+
+
 let configs = [];
 presentations.forEach(presentation => {
     let config = {

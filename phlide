@@ -1,2 +1,21 @@
 #!/urs/bin/env php
+<?php
 
+require __DIR__ . '/bootstrap.php';
+
+// Symfony Console
+use Symfony\Component\Console\Application;
+use Phlide\Command;
+
+
+
+$application = new Application();
+
+$config = new \Phlide\Config;
+
+$application->add(new Command\CreateCommand($config));
+$application->add(new Command\ShowCommand($config));
+$application->add(new Command\ExportCommand($config));
+
+
+$application->run();
