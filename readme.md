@@ -37,8 +37,8 @@ php Plide show <presentation-name>
 ```
 This command starts a local server and opens the presentation in the browser.
 
-[!IMPORTANT]
-Run `npm run watch` to compile tailwind styles while you are working on the presentation.
+> [!IMPORTANT]
+> Run `npm run watch` to compile tailwind styles while you are working on the presentation.
 
 ### Export
 ```bash
