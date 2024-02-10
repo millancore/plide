@@ -1,16 +1,16 @@
 <?php
 
-namespace Phlide;
+namespace Plide;
 
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Filesystem\Filesystem;
-use Phlide\Contract\ApplicationInterface;
-use Phlide\View\ViewServiceProvider;
+use Plide\Contract\ApplicationInterface;
+use Plide\View\ViewServiceProvider;
 
-class Phlide extends Container implements ApplicationInterface
+class Plide extends Container implements ApplicationInterface
 {
     private Config $config;
 
@@ -34,7 +34,7 @@ class Phlide extends Container implements ApplicationInterface
     private function registerBaseBindings() : void
     {
         static::setInstance($this);
-        $this->instance('phlide', $this);
+        $this->instance('Plide', $this);
         $this->instance(ApplicationInterface::class, $this);
     }
 

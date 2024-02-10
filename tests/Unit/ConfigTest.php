@@ -1,6 +1,6 @@
 <?php
 
-use Phlide\Config;
+use Plide\Config;
 
 it('should return the root path', function () {
     $config = new Config;

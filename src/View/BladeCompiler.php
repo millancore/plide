@@ -1,6 +1,6 @@
 <?php
 
-namespace Phlide\View;
+namespace Plide\View;
 
 class BladeCompiler extends \Illuminate\View\Compilers\BladeCompiler
 {

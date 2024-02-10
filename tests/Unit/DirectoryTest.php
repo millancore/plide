@@ -1,6 +1,6 @@
 <?php
 
-use Phlide\Support\Directory;
+use Plide\Support\Directory;
 
 it('can scan directory', function () {
 

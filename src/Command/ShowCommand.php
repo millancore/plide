@@ -1,9 +1,9 @@
 <?php
 
-namespace Phlide\Command;
+namespace Plide\Command;
 
-use Phlide\Config;
-use Phlide\Support\Directory;
+use Plide\Config;
+use Plide\Support\Directory;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

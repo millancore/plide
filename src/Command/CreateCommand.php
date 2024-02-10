@@ -1,10 +1,10 @@
 <?php
 
-namespace Phlide\Command;
+namespace Plide\Command;
 
 use InvalidArgumentException;
-use Phlide\Config;
-use Phlide\Support\Directory;
+use Plide\Config;
+use Plide\Support\Directory;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;

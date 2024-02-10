@@ -1,6 +1,6 @@
 <?php
 
-namespace Phlide\View;
+namespace Plide\View;
 
 use Illuminate\View\DynamicComponent;
 

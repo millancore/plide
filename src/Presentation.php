@@ -1,6 +1,6 @@
 <?php
 
-namespace Phlide;
+namespace Plide;
 
 abstract class Presentation
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phlide\Contract;
+namespace Plide\Contract;
 
 use Illuminate\Contracts\Container\Container;
 

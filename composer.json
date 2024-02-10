@@ -7,14 +7,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Phlide\\": "src/",
+            "Plide\\": "src/",
             "Presentations\\": "presentations/"
         },
         "files": ["src/helpers.php"]
     },
     "autoload-dev": {
         "psr-4": {
-            "Phlide\\Tests\\": "tests/"
+            "Plide\\Tests\\": "tests/"
         }
     },
     "require-dev": {

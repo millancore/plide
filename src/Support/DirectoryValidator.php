@@ -1,6 +1,6 @@
 <?php
 
-namespace Phlide\Support;
+namespace Plide\Support;
 
 use InvalidArgumentException;
 
