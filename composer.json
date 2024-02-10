@@ -1,6 +1,7 @@
 {
     "require": {
         "php": "^8.1",
+        "ext-zip": "*",
         "illuminate/view": "^10.43",
         "illuminate/console": "^10.43",
         "illuminate/config": "^10.43"

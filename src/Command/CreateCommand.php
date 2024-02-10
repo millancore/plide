@@ -40,6 +40,15 @@ class CreateCommand extends Command
     {
         $name = $input->getArgument('name');
 
+        if (!preg_match('/^[a-zA-Z0-9_]+$/', $name)) {
+            $output->writeln(
+                sprintf(
+                    '<error>%s</error>',
+                     'Invalid name, please use only letters, numbers and underscores')
+            );
+            return Command::FAILURE;
+        }
+
         try {
             $presentationPath = Directory::create(
                 $this->config->joinPath($this->config->getPresentationPath(), $name)

@@ -1,7 +1,9 @@
 <?php
 
+use Plide\Plide;
+
 require dirname(__DIR__) . '/../bootstrap.php';
 
-$plide = new \Plide\Plide(realpath(__DIR__));
+$plide = new Plide(__DIR__);
 
 print $plide->render();

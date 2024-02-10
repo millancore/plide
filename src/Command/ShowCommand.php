@@ -34,7 +34,6 @@ class ShowCommand extends Command
             'The name of the presentation folder'
         );
 
-
         $this->addOption(
             'port',
             'p',
@@ -49,9 +48,22 @@ class ShowCommand extends Command
         $name = $input->getArgument('name');
         $port = $input->getOption('port');
 
-        $presentation = new Directory(
-            $this->config->joinPath($this->config->getPresentationPath(), $name)
-        );
+        $plidePresentationPath = $this->config->getPresentationPath();
+
+        if(str_starts_with($name, basename($plidePresentationPath))) {
+            $name = str_replace(basename($plidePresentationPath), '', $name);
+        }
+
+        $presentationPath = $this->config->joinPath($plidePresentationPath, $name);
+
+        if(!is_dir($presentationPath)) {
+            $output->writeln(
+                sprintf('<error>%s</error>', 'Presentation does not exist')
+            );
+            return Command::FAILURE;
+        }
+
+        $presentation = new Directory($presentationPath);
 
         if(!$presentation->has('dist')) {
             $output->writeln("Compile assets for the first time");

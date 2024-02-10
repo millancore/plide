@@ -83,6 +83,10 @@ class Directory
             // If callback is provided, use it to modify the file
             if($callback) {
                 $targetPath = $callback($targetPath);
+
+                if (is_null($targetPath) || $targetPath === false) {
+                    continue;
+                }
             }
 
             $file->isDir() ? mkdir($targetPath) : copy($file, $targetPath);

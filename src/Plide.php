@@ -13,60 +13,70 @@ use Plide\View\ViewServiceProvider;
 class Plide extends Container implements ApplicationInterface
 {
     private Config $config;
+    private string $presentationName;
 
     public function __construct(
         private readonly string $basePath
     )
     {
         $this->config = new Config;
+        $this->presentationName = basename($this->basePath);
 
         $this->registerBaseBindings();
         $this->registerViewProvider();
-
     }
 
-    public function getBasePath() : string
+    public function getPresentationName(): string
     {
-        return $this->basePath;
+        return $this->presentationName;
     }
 
-
-    private function registerBaseBindings() : void
+    private function registerBaseBindings(): void
     {
         static::setInstance($this);
         $this->instance('Plide', $this);
         $this->instance(ApplicationInterface::class, $this);
     }
 
-    private function registerViewProvider() : void
+    private function registerViewProvider(): void
     {
-       $this->bind('files', fn() => new Filesystem);
-       $this->bind('config', fn() => new Repository(
-           $this->config->getViewPaths()
-       ));
+        $this->bind('files', fn() => new Filesystem);
+        $this->bind('config', fn() => new Repository(
+            $this->config->getViewPaths()
+        ));
 
-       $this->bind('events', fn() => new Dispatcher($this));
+        $this->bind('events', fn() => new Dispatcher($this));
 
-       $viewService = new ViewServiceProvider($this);
-       $this->alias('view', Factory::class);
+        $viewService = new ViewServiceProvider($this);
+        $this->alias('view', Factory::class);
 
-       $viewService->register();
+        $viewService->register();
     }
 
 
-    public function terminating($callback)
+    public function getAssetPath(): string
     {
-        return $this;
+        return $this->basePath . '/assets';
     }
 
-    public function render(?Presentation $presentation = null) : string
+    public function render(?Presentation $presentation = null): string
     {
         if ($presentation) {
             return $presentation->render();
         }
 
-        return $this->make('view')
-              ->make(sprintf('%s.show', basename($this->basePath)));
+        return view('show', [
+            'name' => ucfirst($this->presentationName)
+        ]);
+    }
+
+
+    /**
+     * Add for compatibility with Laravel (Illuminate )
+     */
+    public function terminating($callback)
+    {
+        return $this;
     }
 
 
