@@ -12,13 +12,14 @@ use Phlide\View\ViewServiceProvider;
 
 class Phlide extends Container implements ApplicationInterface
 {
-    private string $basePath;
-    private array $terminatingCallbacks;
-    protected $namespace;
+    private Config $config;
 
-    public function __construct(string $basePath)
+    public function __construct(
+        private readonly string $basePath
+    )
     {
-        $this->basePath = $basePath;
+        $this->config = new Config;
+
         $this->registerBaseBindings();
         $this->registerViewProvider();
 
@@ -39,37 +40,22 @@ class Phlide extends Container implements ApplicationInterface
 
     private function registerViewProvider() : void
     {
-       $viewConfigPath = [
-           'view' => [
-               'paths' => [
-                   PRESENTATION_PATH,
-                   ROOT_PATH . '/resources/views'
-               ],
-               'compiled' => ROOT_PATH . '/cache',
-           ]
-       ];
-
        $this->bind('files', fn() => new Filesystem);
-       $this->bind('config', fn() => new Repository($viewConfigPath));
+       $this->bind('config', fn() => new Repository(
+           $this->config->getViewPaths()
+       ));
+
        $this->bind('events', fn() => new Dispatcher($this));
 
        $viewService = new ViewServiceProvider($this);
-
        $this->alias('view', Factory::class);
 
        $viewService->register();
     }
 
-    /**
-     * Register a terminating callback with the application.
-     *
-     * @param  callable|string  $callback
-     * @return $this
-     */
+
     public function terminating($callback)
     {
-        $this->terminatingCallbacks[] = $callback;
-
         return $this;
     }
 

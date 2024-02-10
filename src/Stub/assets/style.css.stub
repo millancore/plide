@@ -2,11 +2,17 @@
 @import "reveal.js/dist/reveal.css";
 
 /* Theme */
-@import "reveal.js/dist/theme/black.css";
+@import "/resources/theme/black.css";
 
-/* Code Highlight */
+/* Code Highlight
+ * Can download code themes from:
+ * https://github.com/highlightjs/highlight.js/tree/main/src/styles
+ * And test them in: https://highlightjs.org/demo
+ */
 @import "reveal.js/plugin/highlight/monokai.css";
 
+
+/** Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

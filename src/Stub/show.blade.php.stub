@@ -2,12 +2,12 @@
 
 @section('content')
     <x-slide>
-       <h1 class="text-6xl">Phlide</h1>
+       <h1 class="text-6xl mb-4 text-sky-500 font-semibold">Plide</h1>
        <p class="text-2xl">
-            Beating the hell out of PowerPoint
+		   One slide at a time
        </p>
     </x-slide>
     <x-slide>
-       lorem ipsum
+        Lorem Plipsum...
     </x-slide>
 @endsection
