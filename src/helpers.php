@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Container\Container;
+use Illuminate\Contracts\View\View;
 use Plide\Plide;
 
-if (! function_exists('view')) {
-    function view($view = null, $data = [], $mergeData = []) : Illuminate\Contracts\View\View
+if (!function_exists('view')) {
+    function view($view = null, $data = [], $mergeData = []): View
     {
         /** @var Plide $plide */
         $plide = Container::getInstance();
@@ -14,9 +15,11 @@ if (! function_exists('view')) {
             return $factory;
         }
 
-        $view = sprintf('%s/%s', $plide->getPresentationName(), $view);
-
-        return $factory->make($view, $data, $mergeData);
+        return $factory->make(
+            $plide->getPresentationName() . DIRECTORY_SEPARATOR . $view,
+            $data,
+            $mergeData
+        );
     }
 }
 
@@ -26,6 +29,6 @@ if (!function_exists('asset')) {
         /** @var Plide $plide */
         $plide = Container::getInstance();
 
-        return $plide->getAssetPath().$path;
+        return $plide->getAssetPath() . DIRECTORY_SEPARATOR . $path;
     }
 }

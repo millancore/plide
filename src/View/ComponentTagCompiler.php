@@ -6,7 +6,7 @@ class ComponentTagCompiler extends \Illuminate\View\Compilers\ComponentTagCompil
 {
     public function guessClassName(string $component): string
     {
-        return 'Plide\\Components\\'.$this->formatClassName($component);
+        return 'Plide\\View\\Components\\'.$this->formatClassName($component);
     }
 
 }

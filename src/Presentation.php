@@ -2,9 +2,7 @@
 
 namespace Plide;
 
-use Illuminate\Contracts\View\View;
-
-abstract class Presentation
+class Presentation
 {
-    abstract public function render() : View;
+    //
 }

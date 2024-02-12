@@ -41,6 +41,13 @@ class ShowCommand extends Command
             'The port to run the server on',
             8081
         );
+
+        $this->addOption(
+            'test',
+            't',
+            InputArgument::OPTIONAL,
+            'The test option'
+        );
     }
 
     public function execute(InputInterface $input, OutputInterface $output) : int
@@ -65,14 +72,33 @@ class ShowCommand extends Command
 
         $presentation = new Directory($presentationPath);
 
-        if(!$presentation->has('dist')) {
+        if(!$presentation->has('dist') && !$input->getOption('test')) {
             $output->writeln("Compile assets for the first time");
             shell_exec("npm run build");
         }
 
-        shell_exec(sprintf("php -S localhost:%d -t %s", $port, $presentation->getPath()));
+
+        $this->runPhpServer($input, $output, $port, $presentationPath);
 
         return Command::SUCCESS;
+    }
+
+    private function runPhpServer(
+        InputInterface $input,
+        OutputInterface $output,
+        string $port,
+        string $presentationPath
+    ): void
+    {
+        $command = sprintf("php -S localhost:%d -t %s", $port, $presentationPath);
+
+        if($input->getOption('test')) {
+            $output->writeln($command);
+            return;
+        }
+
+        shell_exec($command);
+
     }
 
 }

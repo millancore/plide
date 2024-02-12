@@ -7,10 +7,11 @@ use Illuminate\Container\Container;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Filesystem\Filesystem;
-use Plide\Contract\ApplicationInterface;
+use Plide\Contract\Application;
+use Plide\Contract\Renderable;
 use Plide\View\ViewServiceProvider;
 
-class Plide extends Container implements ApplicationInterface
+class Plide extends Container implements Application
 {
     private Config $config;
     private string $presentationName;
@@ -35,7 +36,7 @@ class Plide extends Container implements ApplicationInterface
     {
         static::setInstance($this);
         $this->instance('Plide', $this);
-        $this->instance(ApplicationInterface::class, $this);
+        $this->instance(Application::class, $this);
     }
 
     private function registerViewProvider(): void
@@ -59,7 +60,9 @@ class Plide extends Container implements ApplicationInterface
         return $this->basePath . '/assets';
     }
 
-    public function render(?Presentation $presentation = null): string
+    public function render(
+        ?Renderable $presentation = null
+    ): string
     {
         if ($presentation) {
             return $presentation->render();

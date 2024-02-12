@@ -6,52 +6,53 @@
 
 Plide is composer that uses  [Laravel Blade](https://laravel.com/docs/10.x/blade#main-content), [Reveal.js](https://revealjs.com/) and [Tailwind CSS](https://tailwindcss.com/docs) to create beautiful presentations.
 
-### Install
+## Install
 
 Clone the repository and run the following command to install the package.
 
+PHP Dependencies
 ```bash
 composer install
 ```
 
+Node Dependencies
 ```bash
 npm install
 ```
 
 ## Usage
 
-### Create
+#### Create
 ```bash
-php Plide new <presentation-name>
+php plide new <presentation-name>
 ```
 This creates a folder in the `presentations` directory with the name of the presentation.
 The folder contains the following files:
 
-- `index.blade.php` - The main file for the presentation
--  A class file for the presentation (optional)
--  You can create folder for images, styles, Markdown files, etc.
-
-### Show 
+#### Show 
 ```bash
-php Plide show <presentation-name>
+php plide show <presentation-name>
 ```
 This command starts a local server and opens the presentation in the browser.
 
 > [!IMPORTANT]
 > Run `npm run watch` to compile tailwind styles while you are working on the presentation.
 
-### Export
+#### Export
 ```bash
-php Plide export <presentation-name>
+php plide export <presentation-name>
 ```
 
-This command exports the presentation to a folder in the `exports` directory. 
-this folder only contains **html** and compiled asset for presentation, ready to use
-without need a server.
+This command exports the presentation to a zip archive in the `exports` directory. 
+this only contains **html** and compiled asset for presentation, ready to use
+without need php.
 
 >only need open `index.html` in your browser.   
 
-## Compose Presentation
+## Presentation
+
+When presentation is created, it contains `show.blade.php` 
+that is the main view for the presentation.
 
 ```php
 @extends('layouts.reveal')
@@ -66,32 +67,33 @@ without need a server.
 @endsection
 ```
 
-### Components
+### Plide Components
 - `<x-slide>` is a component that wraps the content of a slide.
 - `<x-code>` is a component that wraps the content of a code block.
 
-### Variables
-
-You can create a class with the same name of presentation
+### Class
+You can create a class to Manage the presentation, for example
+`Master.php` in `presentations/master` directory.
 
 ```php
-namespace Presentations\masterclass;
+namespace Presentations\master;
 
-use Plide\Presentation;
+use Illuminate\Contracts\View\View;
+use Plide\Contract\Renderable;
 
-class MasterClass extends Presentation
+class Master implements Renderable
 {
-    private $title = 'Plide';
-    
-    ... 
+   public function render() : View 
+   {
+     return view('custom_view', [//...]);
+   }
 }
 ```
 
 And attach it to render method in `index.php`
-
 ```php
 $plide->render(
-    new Presentations\masterclass\MasterClass()
+    new Presentations\master\Master()
 );
 ```
 
