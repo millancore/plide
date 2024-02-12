@@ -1,29 +1,36 @@
 {
-    "require": {
-        "php": "^8.1",
-        "ext-zip": "*",
-        "illuminate/view": "^10.43",
-        "illuminate/console": "^10.43",
-        "illuminate/config": "^10.43"
-    },
-    "autoload": {
-        "psr-4": {
-            "Plide\\": "src/",
-            "Presentations\\": "presentations/"
-        },
-        "files": ["src/helpers.php"]
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Plide\\Tests\\": "tests/"
-        }
-    },
-    "require-dev": {
-        "pestphp/pest": "^2.33"
-    },
-    "config": {
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
-        }
+  "description": "Plide is presentation composer uses reveal, blade and tailwind to create slides",
+  "name": "millancore/plide",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Juan Millan",
+      "email": "juanes14569@gmail.com"
     }
+  ],
+  "require": {
+    "php": "^8.1",
+    "ext-zip": "*",
+    "illuminate/view": "^10.43",
+    "illuminate/console": "^10.43",
+    "illuminate/config": "^10.43"
+  },
+  "autoload": {
+    "psr-4": {
+      "Plide\\": "src/",
+      "Presentations\\": "presentations/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "require-dev": {
+    "pestphp/pest": "^2.33"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
 }

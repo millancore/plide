@@ -78,8 +78,8 @@ You can create a class to Manage the presentation, for example
 ```php
 namespace Presentations\master;
 
-use Illuminate\Contracts\View\View;
 use Plide\Contract\Renderable;
+use Illuminate\Contracts\View\View;
 
 class Master implements Renderable
 {
