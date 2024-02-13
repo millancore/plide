@@ -1,15 +1,15 @@
 @extends('layouts.reveal')
 
 @section('content')
-    <x-slide>
-       <h1 class="text-6xl mb-4 text-sky-500 font-semibold">
+    <x-slide bg-color="bg-teal-900">
+       <h1 class="text-8xl mb-4 text-gray-200 font-semibold">
            Plide - {{ $name }}
        </h1>
        <p class="text-4xl">
 		   One slide at a time
        </p>
     </x-slide>
-    <x-slide>
+    <x-slide bg-color="bg-green-900">
         Lorem Plipsum...
     </x-slide>
 @endsection

@@ -20,7 +20,6 @@ presentations.forEach(presentation => {
     let config = {
         mode: 'development',
         entry: [
-            path.resolve(__dirname, 'resources/js/reveal.js'),
             path.resolve(presentationsPath, presentation, 'assets/main.js'),
         ],
         output: {

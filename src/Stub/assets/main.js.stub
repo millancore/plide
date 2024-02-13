@@ -1,1 +1,16 @@
 import './style.css'
+import Reveal from 'reveal.js';
+
+/**
+ * How to import plugins
+ * https://revealjs.com/plugins/
+ */
+
+
+/** Config https://revealjs.com/config/ */
+let deck = new Reveal({
+    plugins: [],
+    hash: true
+ })
+
+ deck.initialize();

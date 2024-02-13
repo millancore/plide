@@ -5,14 +5,14 @@ use Plide\Plide;
 
 $plide = new Plide(__DIR__);
 
-it('it should be a instance of Illuminate Blade', function () use ($plide) {
+it('should be a instance of Illuminate Blade', function () use ($plide) {
 
     $compiler = $plide->get('blade.compiler');
 
     expect($compiler)->toBeInstanceOf(BladeCompiler::class);
 });
 
-it('it can compile a Plide component', function () use ($plide) {
+it('can compile a Plide component', function () use ($plide) {
 
     $compiler = $plide->get('blade.compiler');
 

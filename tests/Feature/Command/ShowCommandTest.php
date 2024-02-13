@@ -6,7 +6,7 @@ use Plide\Config;
 use Symfony\Component\Console\Tester\CommandTester;
 use Plide\Command\ShowCommand;
 
-it('it can start php server to show presentation', function () {
+it('can start php server to show presentation', function () {
 
     $config = new Config();
 
