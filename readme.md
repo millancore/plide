@@ -27,7 +27,8 @@ npm install
 php plide new <presentation-name>
 ```
 This creates a folder in the `presentations` directory with the name of the presentation.
-The folder contains the following files:
+The folder contain the example, you can run `show` command and start to edit the presentation
+adding new slides and content.
 
 #### Show 
 ```bash
