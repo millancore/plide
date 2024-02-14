@@ -1,15 +1,12 @@
 import './style.css'
 import Reveal from 'reveal.js';
 
-/**
- * How to import plugins
- * https://revealjs.com/plugins/
- */
+/** Plugins: https://revealjs.com/plugins/ */
+ import RevealHighlight from 'reveal.js/plugin/highlight/highlight';
 
-
-/** Config https://revealjs.com/config/ */
+/** Config: https://revealjs.com/config/ */
 let deck = new Reveal({
-    plugins: [],
+    plugins: [ RevealHighlight ],
     hash: true
  })
 

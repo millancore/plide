@@ -24,13 +24,11 @@ class Attributes
 
                 $attribute->setValue($value);
 
-                var_dump((string) $attribute);
-                $result .= ltrim((string) $attribute, ' ');
+                $result .=  $attribute . ' ';
             }
         }
 
-        return $result;
-
+        return rtrim($result);
     }
 
 }

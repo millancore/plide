@@ -58,7 +58,7 @@ class Plide extends Container implements Application
 
     public function getAssetPath(): string
     {
-        return $this->basePath . '/assets';
+        return './assets';
     }
 
     public function render(

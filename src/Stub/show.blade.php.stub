@@ -11,5 +11,22 @@
     </x-slide>
     <x-slide bg-color="bg-green-900">
         Lorem Plipsum...
+        <img src="{{ asset('images/big-buck-bunny.webp') }}" alt="Bunny">
+    </x-slide>
+    <x-slide bg-color="bg-slate-700">
+        <h1 class="text-7xl text-left text-gray-300">Beautiful Code</h1>
+        <x-code class="rounded" trim lines="1,5,9" >
+            namespace App\Http\Controllers;
+
+            use App\Models\User;
+
+            class UserController extends Controller
+            {
+                public function show(User $user)
+                {
+                    return view('user.profile', ['user' => $user]);
+                }
+            }
+        </x-code>
     </x-slide>
 @endsection
