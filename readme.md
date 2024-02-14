@@ -72,7 +72,7 @@ that is the main view for the presentation.
 - `<x-slide>` is a component that wraps the content of a slide.
 - `<x-code>` is a component that wraps the content of a code block.
 
-### Class
+### Class (Optional) 
 You can create a class to Manage the presentation, for example
 `Master.php` in `presentations/master` directory.
 
